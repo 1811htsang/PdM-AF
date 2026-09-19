@@ -10,12 +10,7 @@ Lộ trình triển khai chi tiết, đi từ
   4. **Giao tiếp dữ liệu** (Connectivity & Data Visualization)
   5. **Kiểm chứng và tối ưu** (Validation & Optimization)
 
-## Các công việc phụ
-
-- [ ] Sửa đổi lại README để cập nhật thông tin về dự án và hướng dẫn sử dụng
-- [ ] Viết tài liệu hướng dẫn sử dụng và cấu hình hệ thống cho người dùng
-
-## Giai đoạn Cốt lõi
+## To-do Items
 
 - [x] Thiết kế khung dự án (Project Structure)
 - [x] Bổ sung các tài liệu căn bản của dự án
@@ -29,9 +24,6 @@ Lộ trình triển khai chi tiết, đi từ
 - [x] Hàn mạch PCM1808 để thử nghiệm và cấu hình I2S
 - [x] Cấu hình I2S để thu tín hiệu âm thanh từ PCM1808 và MAX9812
 - [x] Cắm mạch và kiểm tra tín hiệu hoạt động
-
-## Giai đoạn Kiến trúc phần cứng
-
 - [x] Thiết kế PCB theo mẫu sử dụng PCM1808, MAX9812, ESP32, TL072IDT gốc
 - [x] Bổ sung thiết kế phân tách đường tín hiệu cơ học với PJ-342S để giảm nhiễu và cải thiện chất lượng âm thanh
 - [x] Làm mượt tín hiệu clock cho PCM1808 với mạch Pierce Oscillator để giảm jitter và cải thiện chất lượng âm thanh
@@ -40,20 +32,23 @@ Lộ trình triển khai chi tiết, đi từ
 - [x] Thêm các linh kiện bổ sung để tách nguồn xuống 9V, 5V, 3.3V cho các thành phần khác nhau của hệ thống
 - [x] Cân nhắc bổ sung LDO cho mạch để giảm nhiễu và cải thiện chất lượng âm thanh. Loại bỏ do độ phức tạp phải sửa đổi thiết kế PCB và tăng chi phí
 - [x] Kiểm tra lại kích thước và bố trí linh kiện đã về hàng để đảm bảo thiết kế PCB phù hợp và tối ưu
-- [ ] Kiểm tra kích thước của jack cắm PJ-342S để đảm bảo tương thích với thiết kế PCB
-- [ ] Đặt gia công in mạch
-
-## Giai đoạn Xử lý dữ liệu & Truyền thông
-
 - [x] Lựa chọn dataset và thuật toán xử lý dữ liệu âm thanh phù hợp để kiểm chứng khả năng thu thập dữ liệu âm thanh chất lượng cao của hệ thống
 - [x] Thiết kế server nội bộ để ESP32 giao tiếp và truyền dữ liệu âm thanh về kit xử lý trung tâm (sử dụng WSL trên Windows để phát triển và kiểm thử như 1 server nội bộ)
+
+// NOTE - 2242 - 19/09/26 onward
+
+<!-- STATUS
+Hiện tại server nội bộ đã có sẵn laptop cũ chạy Fedora 42 nên không cần phải cài đặt lại WSL trên Windows. Việc cấu hình TCP/IP và các thiết lập liên quan sẽ được tạm hoãn để tập trung vào việc triển khai MFCC và μEDP
+-->
+
+- [ ] Cân nhắc đưa μEDP vào làm nền tảng điều phối và xử lý dữ liệu âm thanh cho hệ thống.
+
+<!-- STATUS
+Đã thống nhất triển khai μEDP làm nền tảng điều phối và xử lý dữ liệu âm thanh cho hệ thống. Việc triển khai sẽ được thực hiện trên ESP32S3 và STM32H723 cho đề tài CE201 và CE224. Các MCU khác sẽ được loại bỏ khỏi repo CE201, ngoại trừ STM32F103 được giữ lại để thực hiện thí nghiệm baseline.
+-->
+
 - [ ] Bổ sung driver thiết kế cho thuật toán MFCC bao gồm (pre-emphasis, frame-split, windowing, fft, filter bank, dct) để phân tích và trích xuất đặc trưng âm thanh từ dữ liệu thu thập được
 - [ ] Bổ sung driver tính toán rms, crest factor, spectral kurtosis để phân tích đặc trưng âm thanh và đánh giá chất lượng tín hiệu
-- [ ] Cấu hình TCP/IP trên linux server để nhận dữ liệu âm thanh từ ESP32
-- [ ] Bổ sung driver giao tiếp sử dụng TCP/IP trên lwip để ESP32 có thể truyền dữ liệu âm thanh về server nội bộ
-- [ ] Bổ sung driver cho xử lý thuật toán MFCC để phân tích và trích xuất đặc trưng âm thanh từ dữ liệu thu thập được
-- [ ] Thiết kế driver giao tiếp giữa ESP32 và server nội bộ
+- [ ] Kiểm tra kích thước của jack cắm PJ-342S để đảm bảo tương thích với thiết kế PCB
+- [ ] Đặt gia công in mạch
 - [ ] Tìm hiểu cơ chế giao tiếp với PSRAM để tận dụng làm ring buffer cho dữ liệu âm thanh
-- [ ] Cân nhắc vấn đề sử dụng Core CIEDPC để xử lý hệ thống theo hướng sự kiện (event-driven) để tối ưu hiệu suất và giảm độ trễ với 2 core của ESP32
-
-## Giai đoạn Kiểm chứng và tối ưu
