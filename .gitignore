@@ -3,6 +3,6 @@ project-obsidianspace/.obsidian/*
 project-artifactspace/.clangd
 project-artifactspace/.devcontainer/*
 project-artifactspace/.vscode/*
-project-kicadspace/designspace/designspace-backups/*
-project-kicadspace/designspace/designspace.kicad_prl
-project-kicadspace/designspace/designspace.kicad_pro
+project-kicadspace/kicadobj/_restore_backup_2026-09-13T21-14-25-470/**
+project-kicadspace/kicadobj/_restore_backup_2026-09-13T21-24-50-852/**
+project-kicadspace/kicadobj/.history
