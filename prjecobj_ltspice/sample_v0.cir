@@ -1,0 +1,63 @@
+* Netlist mach Khuech dai Mic (MAX9812 -> TL072 -> PCM1808)
+* Gain = 4 (12dB), Flat 10Hz - 60kHz, Chuan AC Coupling
+
+* ----------------------------------------------------------------------
+* 1. NGUON CAP & DIEN AP NEN (POWER & BIAS VOLTAGES)
+* ----------------------------------------------------------------------
+V_PWR VCC 0 DC 12V         ; Nguon cap 12V cho Op-amp TL072
+V_ADC VREF 0 DC 2.5V       ; Mo phong muc DC Bias 2.5V noi bo cua PCM1808
+
+* Tao muc DC Bias 6V (Vcc/2) cho TL072 de hoat dong toi uu voi nguon don
+R_B1 VCC BIAS_6V 100k
+R_B2 BIAS_6V 0 100k
+C_B  BIAS_6V 0 10uF        ; Tu loc nhieu cho duong Bias 6V
+
+* ----------------------------------------------------------------------
+* 2. MO PHONG TIN HIEU TU MAX9812L (INPUT)
+* ----------------------------------------------------------------------
+VIN IN_MAX 0 AC 1          ; Tin hieu AC tu MAX9812L
+
+* ----------------------------------------------------------------------
+* 3. TANG GHEP AC NG0 VAO (AC COUPLING INPUT)
+* ----------------------------------------------------------------------
+* Ngang chan muc 1.5V DC cua MAX, ep tin hieu xoay chieu cuoi len muc 6V DC
+C_IN IN_MAX IN_OPAMP 1uF
+R_IN IN_OPAMP BIAS_6V 100k
+
+* ----------------------------------------------------------------------
+* 4. OP-AMP U1A: TANG KHUECH DAI (Gain = 4)
+* ----------------------------------------------------------------------
+XU1A IN_OPAMP IN_MINUS OUT_OP VCC 0 IDEAL_OPAMP
+R_F OUT_OP IN_MINUS 30k    ; Tro hoi tiep
+R_G IN_MINUS N_CAP 10k     ; Tro noi mass (Quy dinh Gain = 1 + 30k/10k = 4)
+C_G N_CAP 0 10uF           ; Tu nay giu Gain DC = 1, chi khuech dai AC
+
+* ----------------------------------------------------------------------
+* 5. BO LOC CHONG ALIASING CHUAN BI VAO ADC (LPF ~159kHz)
+* ----------------------------------------------------------------------
+R_LP OUT_OP OUT_LPF 1k
+C_LP OUT_LPF 0 1nF
+
+* ----------------------------------------------------------------------
+* 6. TANG GHEP AC NGO RA DI VAO PCM1808 (CRITICAL STAGE)
+* ----------------------------------------------------------------------
+* Tu C_OUT chan muc 6V cua TL072, dua tin hieu vao ADC
+* R_ADC mo phong tong tro vao 60k cua PCM1808 (Xem trang 6 Datasheet)
+C_OUT OUT_LPF IN_ADC 10uF
+R_ADC IN_ADC VREF 60k
+
+* ----------------------------------------------------------------------
+* 7. SUBCKT OP-AMP LY TUONG TRONG LTSPICE
+* ----------------------------------------------------------------------
+.subckt IDEAL_OPAMP 1 2 3 4 5
+E1 3 0 Value = { Limit( 200k*(V(1)-V(2)), V(5)+0.5, V(4)-0.5 ) }
+.ends IDEAL_OPAMP
+
+* ----------------------------------------------------------------------
+* 8. CAU HINH MO PHONG (SIMULATION COMMANDS)
+* ----------------------------------------------------------------------
+ .ac dec 100 1 100k
+* Bo dau ngoac hien thi phan tich AC, dung .tran de kiem tra dien ap DC
+* .tran 10u 10m
+
+.end
