@@ -1,8 +1,4 @@
-project-obsidianspace/.obsidian/*
 .vscode/*
-project-artifactspace/main/CMakeLists.txt
-project-artifactspace/.clangd
-project-artifactspace/CMakeLists.txt
-project-artifactspace/.devcontainer/*
-project-artifactspace/.vscode/*
-project-kicadspace/*
+prjecobj_kicad/kicadobj/_restore_backup_2026-09-13T21-14-25-470/**
+prjecobj_kicad/kicadobj/_restore_backup_2026-09-13T21-24-50-852/**
+prjecobj_kicad/kicadobj/.history
