@@ -427,24 +427,15 @@
         "filename": "kicadobj.kicad_sch",
         "name": "kicadobj",
         "uuid": "ba6b50d5-8c03-4741-82dc-8e8255224c8e"
-      },
-      {
-        "filename": "backup.kicad_sch",
-        "name": "backup",
-        "uuid": "f80ec753-440f-41cc-b842-50792847639d"
       }
     ],
-    "used_designators": "#FLG1-3,#FLG5,Osc1,#PWR1-3,#PWR6-22,#PWR35,#PWR37,#PWR41-47,Op\\-amp2,PCM1808,C1-15,ESP32,INVBUF1,J1,MK1-2,R1-15,U1-6",
+    "used_designators": "#FLG1-3,#FLG5,Osc1,#PWR1-38,#PWR41-47,Op\\-amp2-3,PCM1808,C1-31,ESP32,INVBUF1,J1,MK1-2,R1-34,U1-7",
     "variants": []
   },
   "sheets": [
     [
       "ba6b50d5-8c03-4741-82dc-8e8255224c8e",
       "kicadobj"
-    ],
-    [
-      "f80ec753-440f-41cc-b842-50792847639d",
-      "backup"
     ]
   ],
   "text_variables": {},
