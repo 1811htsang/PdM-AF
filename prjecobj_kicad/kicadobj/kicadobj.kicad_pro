@@ -661,7 +661,7 @@
         "uuid": "ba6b50d5-8c03-4741-82dc-8e8255224c8e"
       }
     ],
-    "used_designators": "#FLG1-3,#FLG5,Osc1,#PWR1-38,#PWR41-49,Op\\-amp2-3,PCM1808,C1-31,ESP32,INVBUF1,J1-4,MK1-2,R1-34,U1-7",
+    "used_designators": "#FLG1-3,#FLG5,Osc1,#PWR1-38,#PWR41-55,Op\\-amp2-3,PCM1808,C1-31,ESP32,INVBUF1,J1-6,MK1-2,R1-34,U1-7",
     "variants": []
   },
   "sheets": [
