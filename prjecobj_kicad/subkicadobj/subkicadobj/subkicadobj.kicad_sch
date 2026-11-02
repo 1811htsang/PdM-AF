@@ -3984,20 +3984,12 @@
 		(uuid "1e976d86-3ffd-480b-ab4a-7921e1a87402")
 	)
 	(no_connect
-		(at 148.59 133.35)
-		(uuid "2304ff54-bab6-4504-972e-a4abc20aba64")
-	)
-	(no_connect
 		(at 148.59 125.73)
 		(uuid "256c08fa-0dec-4b68-b117-d7634fccd836")
 	)
 	(no_connect
 		(at 130.81 115.57)
 		(uuid "2667397a-6d17-4968-bf52-b867056b2be0")
-	)
-	(no_connect
-		(at 148.59 135.89)
-		(uuid "27dcf415-3a16-47b2-8b86-f0be5da26023")
 	)
 	(no_connect
 		(at 118.11 80.01)
@@ -4062,10 +4054,6 @@
 	(no_connect
 		(at 118.11 118.11)
 		(uuid "4dac3c3a-0fa1-4cda-ae1e-37cc7a936a33")
-	)
-	(no_connect
-		(at 148.59 138.43)
-		(uuid "524a24a1-2d19-4090-8042-28594e63b600")
 	)
 	(no_connect
 		(at 161.29 123.19)
@@ -4305,6 +4293,16 @@
 		)
 		(uuid "031d56d6-f419-4c22-be20-b0e0ae3c0105")
 	)
+	(label "PCM_FMT"
+		(at 148.59 138.43 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0ca889de-6a4a-41c0-9d2e-30307114962b")
+	)
 	(label "PCM_MD0"
 		(at 118.11 67.31 180)
 		(effects
@@ -4354,6 +4352,26 @@
 			(justify right bottom)
 		)
 		(uuid "af70f16f-76d6-43f6-a8f4-0cc2009aad85")
+	)
+	(label "PCM_MD1"
+		(at 148.59 135.89 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c165eb5d-c33d-4239-9e1d-00b24ef0c6c8")
+	)
+	(label "PCM_MD0"
+		(at 148.59 133.35 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f7ff6ecc-a2c1-4b32-bf52-91d1ab136a73")
 	)
 	(label "I2S_SDI"
 		(at 118.11 62.23 180)
